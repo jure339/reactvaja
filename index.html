@@ -7,20 +7,27 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/jsx">
         const app = document.getElementById('app');
+
+        function createTitle(title) {
+          if (title) {
+          return title;
+          } else {
+          return 'Default title';
+          }
+        }
  
         function Header({ title }) {
-          console.log(title);
-          return <h1>{title}</h1>;
+          return <h1>{title ? title : 'Default title'}</h1>;
         }
 
         function HomePage() {
-        return (
-          <div>
+          return (
+            <div>
             <Header title="React" />
-          </div>
-        );
-        }   
-
+            <Header title="A new title" />
+            </div>
+          );
+        }
         const root = ReactDOM.createRoot(app);
         root.render(<HomePage />);
     </script>
